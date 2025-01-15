@@ -1,0 +1,275 @@
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-01-12 16:33:19.934442', '2025-01-12 16:33:19.934444') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAds (20250112163233)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "ads" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "price" decimal, "seller_id" integer, "email" varchar, "img_url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250112163233') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mAd Delete All (3.1ms)[0m  [1m[31mDELETE FROM "ads"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAd Create (0.9ms)[0m  [1m[32mINSERT INTO "ads" ("name", "description", "price", "seller_id", "email", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Cadeira Gamer"], ["description", "Cadeira ergonômica para jogos e trabalho, com ajuste de altura e encosto reclinável."], ["price", 799.99], ["seller_id", 1], ["email", "vendedor1@example.com"], ["img_url", "https://example.com/images/cadeira_gamer.jpg"], ["created_at", "2025-01-12 16:46:28.038106"], ["updated_at", "2025-01-12 16:46:28.038106"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAd Create (0.5ms)[0m  [1m[32mINSERT INTO "ads" ("name", "description", "price", "seller_id", "email", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Notebook Dell Inspiron"], ["description", "Notebook com processador Intel i5, 8GB RAM, 256GB SSD. Ideal para estudo e trabalho."], ["price", 3499.0], ["seller_id", 2], ["email", "vendedor2@example.com"], ["img_url", "https://example.com/images/notebook_dell.jpg"], ["created_at", "2025-01-12 16:46:28.041142"], ["updated_at", "2025-01-12 16:46:28.041142"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAd Create (0.6ms)[0m  [1m[32mINSERT INTO "ads" ("name", "description", "price", "seller_id", "email", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Smartphone Samsung Galaxy"], ["description", "Smartphone com tela AMOLED de 6.5'', 128GB de armazenamento e câmera de alta resolução."], ["price", 1899.99], ["seller_id", 3], ["email", "vendedor3@example.com"], ["img_url", "https://example.com/images/samsung_galaxy.jpg"], ["created_at", "2025-01-12 16:46:28.042982"], ["updated_at", "2025-01-12 16:46:28.042982"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAd Create (0.7ms)[0m  [1m[32mINSERT INTO "ads" ("name", "description", "price", "seller_id", "email", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Fone de Ouvido Bluetooth"], ["description", "Fone sem fio com cancelamento de ruído ativo e bateria de longa duração."], ["price", 299.9], ["seller_id", 4], ["email", "vendedor4@example.com"], ["img_url", "https://example.com/images/fone_bluetooth.jpg"], ["created_at", "2025-01-12 16:46:28.045178"], ["updated_at", "2025-01-12 16:46:28.045178"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAd Create (0.5ms)[0m  [1m[32mINSERT INTO "ads" ("name", "description", "price", "seller_id", "email", "img_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "Mesa para Escritório"], ["description", "Mesa espaçosa e resistente, ideal para home office e estudos."], ["price", 499.99], ["seller_id", 5], ["email", "vendedor5@example.com"], ["img_url", "https://example.com/images/mesa_escritorio.jpg"], ["created_at", "2025-01-12 16:46:28.047501"], ["updated_at", "2025-01-12 16:46:28.047501"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAd Load (0.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/ads/1" for 127.0.0.1 at 2025-01-12 13:49:17 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering ads/show.html.erb within layouts/application
+  Rendered ads/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 238)
+  Rendered layout layouts/application.html.erb (Duration: 191.3ms | Allocations: 101697)
+Completed 200 OK in 200ms (Views: 196.0ms | ActiveRecord: 0.0ms | Allocations: 107008)
+
+
+Started GET "/ads/1" for 127.0.0.1 at 2025-01-12 13:52:39 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms | Allocations: 9165)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/application_controller.rb:4:in `show'
+Started GET "/ads/1" for 127.0.0.1 at 2025-01-12 13:53:40 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 500)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/application_controller.rb:4:in `show'
+Started GET "/ads/1" for 127.0.0.1 at 2025-01-12 13:54:09 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 911)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/ads_controller.rb:4:in `show'
+Started GET "/ads/1" for 127.0.0.1 at 2025-01-12 13:54:10 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 500)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/ads_controller.rb:4:in `show'
+Started GET "/ads/1" for 127.0.0.1 at 2025-01-12 13:54:52 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 911)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/ads_controller.rb:4:in `show'
+Started GET "/ads/1" for 127.0.0.1 at 2025-01-12 13:54:58 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 968)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/ads_controller.rb:4:in `show'
+Started GET "/ads/1" for 127.0.0.1 at 2025-01-12 13:56:12 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAd Load (0.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ads_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering ads/show.html.erb within layouts/application
+  Rendered ads/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 3964)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 4040)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.2ms | Allocations: 30710)
+
+
+  
+ActionView::Template::Error (undefined method `image_' for #<Ad id: 1, name: "Cadeira Gamer", description: "Cadeira ergonômica para jogos e trabalho, com ajus...", price: 0.79999e3, seller_id: 1, email: "vendedor1@example.com", img_url: "https://example.com/images/cadeira_gamer.jpg", created_at: "2025-01-12 16:46:28.038106000 +0000", updated_at: "2025-01-12 16:46:28.038106000 +0000">):
+    33:     <strong>
+    34:         Image URL:
+    35:     </strong>
+    36:     <%= @ad.image_ %>
+    37: </p>
+  
+app/views/ads/show.html.erb:36
+Started GET "/ads/1" for 127.0.0.1 at 2025-01-12 13:56:31 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAd Load (0.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ads_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering ads/show.html.erb within layouts/application
+  Rendered ads/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3849)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3925)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.0ms | Allocations: 11032)
+
+
+  
+ActionView::Template::Error (undefined method `image_url' for #<Ad id: 1, name: "Cadeira Gamer", description: "Cadeira ergonômica para jogos e trabalho, com ajus...", price: 0.79999e3, seller_id: 1, email: "vendedor1@example.com", img_url: "https://example.com/images/cadeira_gamer.jpg", created_at: "2025-01-12 16:46:28.038106000 +0000", updated_at: "2025-01-12 16:46:28.038106000 +0000">
+Did you mean?  img_url
+               img_url=
+               img_url?):
+    33:     <strong>
+    34:         Image URL:
+    35:     </strong>
+    36:     <%= @ad.image_url%>
+    37: </p>
+  
+app/views/ads/show.html.erb:36
+Started GET "/ads/1" for 127.0.0.1 at 2025-01-12 13:56:49 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAd Load (0.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ads_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering ads/show.html.erb within layouts/application
+  Rendered ads/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 325)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 15845)
+Completed 200 OK in 19ms (Views: 11.6ms | ActiveRecord: 1.0ms | Allocations: 22893)
+
+
+Started GET "/" for ::1 at 2025-01-15 15:52:04 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AdsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering ads/index.html.erb within layouts/application
+  Rendered ads/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 164)
+  Rendered layout layouts/application.html.erb (Duration: 51.7ms | Allocations: 34158)
+Completed 200 OK in 69ms (Views: 56.9ms | ActiveRecord: 0.0ms | Allocations: 40247)
+
+
+  [1m[36mAd Load (0.5ms)[0m  [1m[34mSELECT "ads".* FROM "ads" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2025-01-15 15:57:06 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AdsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering ads/index.html.erb within layouts/application
+  Rendered ads/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1992)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 2109)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 18891)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1> Mebay Index </h1>
+
+<% @ads.each do |ad| %>
+    <%= link_to ad.name , path "ads/#{ad.id}" %>
+<% end %>
+):
+1:    <h1> Mebay Index </h1>
+2:    
+3:    <% @ads.each do |ad| %>
+4:        <%= link_to ad.name , path "ads/#{ad.id}" %>
+5:    <% end %>
+  
+app/views/ads/index.html.erb:4: syntax error, unexpected string literal, expecting `do' or '{' or '('
+Started GET "/" for ::1 at 2025-01-15 15:58:04 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AdsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering ads/index.html.erb within layouts/application
+  Rendered ads/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1994)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2111)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 18893)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1> Mebay Index </h1>
+
+<% @ads.each do |ad| %>
+    <%= link_to "#{ad.name}" , path "ads/#{ad.id}" %>
+<% end %>
+):
+1:    <h1> Mebay Index </h1>
+2:    
+3:    <% @ads.each do |ad| %>
+4:        <%= link_to "#{ad.name}" , path "ads/#{ad.id}" %>
+5:    <% end %>
+  
+app/views/ads/index.html.erb:4: syntax error, unexpected string literal, expecting `do' or '{' or '('
+Started GET "/" for ::1 at 2025-01-15 16:00:01 -0300
+Processing by AdsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering ads/index.html.erb within layouts/application
+  [1m[36mAd Load (0.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/views/ads/index.html.erb:3
+  Rendered ads/index.html.erb within layouts/application (Duration: 13.6ms | Allocations: 21376)
+  Rendered layout layouts/application.html.erb (Duration: 54.4ms | Allocations: 55064)
+Completed 200 OK in 58ms (Views: 54.3ms | ActiveRecord: 1.3ms | Allocations: 56795)
+
+
+Started GET "/ads/1" for ::1 at 2025-01-15 16:00:06 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAd Load (0.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ads_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering ads/show.html.erb within layouts/application
+  Rendered ads/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 344)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1685)
+Completed 200 OK in 14ms (Views: 2.7ms | ActiveRecord: 0.1ms | Allocations: 4548)
+
+
+Started GET "/ads/2" for ::1 at 2025-01-15 16:00:09 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAd Load (0.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ads_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering ads/show.html.erb within layouts/application
+  Rendered ads/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1360)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.1ms | Allocations: 2172)
+
+
+Started GET "/ads/3" for ::1 at 2025-01-15 16:00:11 -0300
+Processing by AdsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAd Load (0.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads" WHERE "ads"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/ads_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering ads/show.html.erb within layouts/application
+  Rendered ads/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1357)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2152)
+
+
+Started GET "/" for ::1 at 2025-01-15 16:00:38 -0300
+Processing by AdsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering ads/index.html.erb within layouts/application
+  [1m[36mAd Load (0.1ms)[0m  [1m[34mSELECT "ads".* FROM "ads"[0m
+  ↳ app/views/ads/index.html.erb:3
+  Rendered ads/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 5206)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 20764)
+Completed 200 OK in 18ms (Views: 15.2ms | ActiveRecord: 1.5ms | Allocations: 22470)
+
+
